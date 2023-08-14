@@ -1,4 +1,4 @@
-module go-cli-template
+module github.com/hebelsan/go-template-cli-light
 
 go 1.21.0
 

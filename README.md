@@ -14,14 +14,13 @@ goreleaser release --snapshot --clean
 goreleaser check
 # do release
 export GITHUB_TOKEN="YOUR_GH_TOKEN"
-#git tag -a v0.1.0 -m "First release"
-#git push origin v0.1.0
+git tag -a v0.1.0 -m "First release"
+git push origin v0.1.0
 goreleaser release
-
 ```
 
-
 ## Customize template
+- adjust module name
 - go through all files and rename go-cli-template with your project name
 - adjust GO_VERSION in Dockerfile
 - go version in go.mod

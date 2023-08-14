@@ -20,5 +20,8 @@
 # Go workspace file
 go.work
 
+# ide files (opinionated)
+.idea/
+
 # Go releaser artifacts
 dist/
