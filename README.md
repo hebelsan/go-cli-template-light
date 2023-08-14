@@ -2,6 +2,7 @@
 
 ## Installation
 ```bash
+# writes binary to GOPATH
 make build
 ./go-cli-template
 ```
