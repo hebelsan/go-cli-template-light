@@ -7,11 +7,12 @@ import (
 
 // Info creates a Version struct for output
 type Info struct {
-	Version   string `json:"Version,omitempty" yaml:"Version,omitempty"`
-	Commit    string `json:"Commit,omitempty" yaml:"Commit,omitempty"`
-	BuildDate string `json:"BuildDate,omitempty" yaml:"BuildDate,omitempty"`
-	GoVersion string `json:"GoVersion,omitempty" yaml:"GoVersion,omitempty"`
-	OS        string `json:"OS/Arch,omitempty" yaml:"OS/Arch,omitempty"`
+	Version     string `json:"Version,omitempty" yaml:"Version,omitempty"`
+	Commit      string `json:"Commit,omitempty" yaml:"Commit,omitempty"`
+	BuildDate   string `json:"BuildDate,omitempty" yaml:"BuildDate,omitempty"`
+	GoVersion   string `json:"GoVersion,omitempty" yaml:"GoVersion,omitempty"`
+	OS          string `json:"OS/Arch,omitempty" yaml:"OS/Arch,omitempty"`
+	ReleaseDate string `json:"Date,omitempty" yaml:"Date,omitempty"`
 }
 
 // ToJSON converts the Info into a JSON String

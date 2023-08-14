@@ -6,13 +6,21 @@ import (
 	"runtime/debug"
 )
 
+// filled by goreleaser
+var (
+	releaseVersion = "dev"
+	releaseCommit  = ""
+	releaseDate    = ""
+)
+
 // GenVersionString for printing in version command
 func GenVersionString(printShort bool, outputType string) string {
 	info := Info{
-		Version:   version(),
-		Commit:    commit(),
-		GoVersion: goVersion(),
-		OS:        osArch(),
+		Version:     releaseVersion,
+		Commit:      commit(),
+		GoVersion:   goVersion(),
+		OS:          osArch(),
+		ReleaseDate: releaseDate,
 	}
 	if printShort {
 		info = Info{Version: info.Version}
@@ -29,17 +37,11 @@ func GenVersionString(printShort bool, outputType string) string {
 	}
 }
 
-func version() (version string) {
-	version = "v0.0.0"
-	info, ok := debug.ReadBuildInfo()
-	if ok && info.Main.Version != "" {
-		version = info.Main.Version
-	}
-	return
-}
-
 // commit reads the vcs revision from build info
-func commit() (commit string) {
+func commit() string {
+	if releaseCommit != "" {
+		return releaseCommit
+	}
 	if info, ok := debug.ReadBuildInfo(); ok {
 		for _, setting := range info.Settings {
 			if setting.Key == "vcs.revision" {
@@ -47,7 +49,7 @@ func commit() (commit string) {
 			}
 		}
 	}
-	return
+	return ""
 }
 
 // goVersion returns the version of the go runtime used to compile the binary
