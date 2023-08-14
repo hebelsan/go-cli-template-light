@@ -14,9 +14,9 @@ builds:
       - windows
       - darwin
   - ldflags:
-    - -s -w -X "version.releaseVersion={{.VERSION}}"
-    - -s -w -X "version.releaseCommit={{.Commit}}"
-    - -s -w -X "version.releaseDate={{.Date}}"
+      - -s -w -X "version.releaseVersion={{.VERSION}}"
+      - -s -w -X "version.releaseCommit={{.Commit}}"
+      - -s -w -X "version.releaseDate={{.Date}}"
 
 archives:
   - format: tar.gz
