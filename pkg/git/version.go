@@ -6,11 +6,6 @@ import (
 	"net/http"
 )
 
-type GitVersion struct {
-	Tag        string
-	CommitHash string
-}
-
 func GetLatestReleaseTag(repositoryURL string) (string, error) {
 	apiURL := fmt.Sprintf("https://api.github.com/repos/%s/releases/latest", repositoryURL)
 	response, err := http.Get(apiURL)

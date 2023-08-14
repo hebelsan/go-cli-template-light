@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-cli-template/cmd"
+	"github.com/hebelsan/go-template-cli-light/cmd"
 )
 
 func main() {

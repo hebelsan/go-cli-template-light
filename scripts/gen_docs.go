@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/hebelsan/go-template-cli-light/cmd"
 	"github.com/spf13/cobra/doc"
-	"go-cli-template/cmd"
 	"log"
 )
 
