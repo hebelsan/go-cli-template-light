@@ -30,6 +30,7 @@ goreleaser release
 - adjust GO_VERSION in Dockerfile
 - go version in go.mod
 - for each new command add a file in cmd/
+- adjust repo name in .goreleaser (replace "github.com/hebelsan/go-template-cli" with your repo)
 
 ### Generate Markdown Documentation
 ```

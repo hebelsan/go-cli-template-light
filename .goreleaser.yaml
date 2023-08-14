@@ -13,10 +13,10 @@ builds:
       - linux
       - windows
       - darwin
-  - ldflags:
-      - -s -w -X "version.releaseVersion={{.VERSION}}"
-      - -s -w -X "version.releaseCommit={{.Commit}}"
-      - -s -w -X "version.releaseDate={{.Date}}"
+    ldflags:
+      - -s -w -X github.com/hebelsan/go-template-cli/internal/cmd/version.releaseVersion={{.Version}}
+      - -s -w -X github.com/hebelsan/go-template-cli/internal/cmd/version.releaseCommit={{.Commit}}
+      - -s -w -X github.com/hebelsan/go-template-cli/internal/cmd/version.releaseDate={{.Date}}
 
 archives:
   - format: tar.gz
