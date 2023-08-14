@@ -1,11 +1,25 @@
 # go lightweight cobra template
 
 ## Installation
-
-```
+```bash
 make build
 ./go-cli-template
 ```
+
+## Release
+```bash
+# dry run
+goreleaser release --snapshot --clean
+# verify your .goreleaser.yaml
+goreleaser check
+# do release
+export GITHUB_TOKEN="YOUR_GH_TOKEN"
+#git tag -a v0.1.0 -m "First release"
+#git push origin v0.1.0
+goreleaser release
+
+```
+
 
 ## Customize template
 - go through all files and rename go-cli-template with your project name
