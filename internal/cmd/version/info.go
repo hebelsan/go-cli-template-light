@@ -2,7 +2,6 @@ package version
 
 import (
 	"encoding/json"
-	"fmt"
 	"gopkg.in/yaml.v3"
 )
 
@@ -25,9 +24,4 @@ func (v *Info) toJSON() string {
 func (v *Info) toYAML() string {
 	bytes, _ := yaml.Marshal(v)
 	return string(bytes)
-}
-
-// ToShortened converts the Version into a String
-func (v *Info) toShortened() string {
-	return fmt.Sprintf("Version: %s\n", v.Version)
 }

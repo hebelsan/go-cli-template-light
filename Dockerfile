@@ -17,10 +17,10 @@ RUN echo "nonroot:x:65534:65534:Non root:/:" > /etc_passwd
 # Final stage
 FROM scratch
 
-COPY --from=builder /go/bin/go-cli-template /bin/go-cli-template
+COPY --from=builder /go/bin/go-template-cli /bin/go-template-cli
 COPY --from=builder /etc_passwd /etc/passwd
 
 USER nonroot
 
-ENTRYPOINT [ "go-cli-template" ]
+ENTRYPOINT [ "go-template-cli" ]
 CMD [ "version" ]

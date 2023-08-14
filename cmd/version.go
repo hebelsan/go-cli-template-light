@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/hebelsan/go-template-cli-light/internal/cmd/version"
+	"github.com/hebelsan/go-template-cli/internal/cmd/version"
 	"github.com/spf13/cobra"
 )
 

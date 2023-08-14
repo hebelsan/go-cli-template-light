@@ -4,7 +4,11 @@
 ```bash
 # writes binary to GOPATH
 make build
-./go-cli-template
+go-template-cli
+```
+or
+```bash
+go run main.go
 ```
 
 ## Release
@@ -22,7 +26,7 @@ goreleaser release
 
 ## Customize template
 - adjust module name
-- go through all files and rename go-cli-template with your project name
+- go through all files and rename go-template-cli with your project name
 - adjust GO_VERSION in Dockerfile
 - go version in go.mod
 - for each new command add a file in cmd/

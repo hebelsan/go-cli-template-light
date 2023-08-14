@@ -6,19 +6,13 @@ import (
 	"runtime/debug"
 )
 
-// GoVersion returns the version of the go runtime used to compile the binary
-var goVersion = runtime.Version()
-
-// OsArch returns the os and arch used to build the binary
-var osArch = fmt.Sprintf("%s %s", runtime.GOOS, runtime.GOARCH)
-
 // GenVersionString for printing in version command
 func GenVersionString(printShort bool, outputType string) string {
 	info := Info{
-		Version:   getVersion(),
-		Commit:    getCommit(),
-		GoVersion: goVersion,
-		OS:        osArch,
+		Version:   version(),
+		Commit:    commit(),
+		GoVersion: goVersion(),
+		OS:        osArch(),
 	}
 	if printShort {
 		info = Info{Version: info.Version}
@@ -35,7 +29,7 @@ func GenVersionString(printShort bool, outputType string) string {
 	}
 }
 
-func getVersion() (version string) {
+func version() (version string) {
 	version = "v0.0.0"
 	info, ok := debug.ReadBuildInfo()
 	if ok && info.Main.Version != "" {
@@ -44,7 +38,8 @@ func getVersion() (version string) {
 	return
 }
 
-func getCommit() (commit string) {
+// commit reads the vcs revision from build info
+func commit() (commit string) {
 	if info, ok := debug.ReadBuildInfo(); ok {
 		for _, setting := range info.Settings {
 			if setting.Key == "vcs.revision" {
@@ -53,4 +48,14 @@ func getCommit() (commit string) {
 		}
 	}
 	return
+}
+
+// goVersion returns the version of the go runtime used to compile the binary
+func goVersion() string {
+	return runtime.Version()
+}
+
+// osArch returns the os and arch used to build the binary
+func osArch() string {
+	return fmt.Sprintf("%s %s", runtime.GOOS, runtime.GOARCH)
 }
